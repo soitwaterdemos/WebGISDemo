@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "formidable": "^1.2.1",
+    "unzip": "^0.1.11"
+  }
+}
