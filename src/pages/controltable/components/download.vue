@@ -21,6 +21,7 @@
 import store from "@/api/store.js"
 import api from "@/api/api.js"
 import qs from "qs"
+import shp from "shpjs"
 
 export default {
   name: "Download",
@@ -48,8 +49,8 @@ export default {
         }
       }
     },
-    downloadTestData () {
-      window.open("./testdata.zip")
+    downloadTestData () { // 下载测试文件
+      window.open("https://github.com/soitwaterdemos/WebGISDemo/blob/master/static/testdata.zip?raw=true")
     },
     showAuthorMsg () {
       this.msg('网页临摹: https://pixelmap.amcharts.com/#', `本网页仅作个人练习使用`)
