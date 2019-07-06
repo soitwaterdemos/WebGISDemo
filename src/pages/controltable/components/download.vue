@@ -11,8 +11,8 @@
       <el-button class="element-button" size="mini" @click="showAuthorMsg()">About&nbsp;Author</el-button>
     </el-tooltip>
     <div class="footer">
-      <el-button class="element-button-footer" size="mini" icon="el-icon-download" @click="downloadJson">JSON</el-button>
-      <el-button class="element-button-footer" size="mini" icon="el-icon-download">CODE</el-button>
+      <el-button class="element-button-footer" size="mini" icon="el-icon-download" @click="downloadJson" title="下载当前所选地图的JSON文件">JSON</el-button>
+      <el-button class="element-button-footer" size="mini" icon="el-icon-download" @click="downloadTestData" title="下载示例文件(.zip)">DATA</el-button>
     </div>
   </div>
 </template>
@@ -21,7 +21,6 @@
 import store from "@/api/store.js"
 import api from "@/api/api.js"
 import qs from "qs"
-// import saveAs from "@/assets/publicjs/FileSaver.js"
 
 export default {
   name: "Download",
@@ -32,18 +31,13 @@ export default {
   methods: {
     downloadJson () {
       let globalOpenlayerValue = store.state.globalValue 
-      // let param = {
-      //   "userId": store.state.userId, 
-      //   "fileName": globalOpenlayerValue.tableData[globalOpenlayerValue.currentVisibleLayerIndex].name
-      // }
       let fileName = globalOpenlayerValue.tableData[globalOpenlayerValue.currentVisibleLayerIndex].name
       for (let item of store.state.globalValue.jsonFileName) {
         if (fileName === item) {
-          this.msg(`Json文件不会上传服务器, 请在个人设备上查找文件 ${fileName}.json`, "下载错误")
+          this.msg(`${fileName}.json 文件为本地文件, 请在个人设备上查找该文件`, "下载错误")
           return 
         }
       }
-
       for (let item of store.state.globalValue.zipFileName) {
         if (fileName === item) {
           let data = store.state.openlayers.geoJsonUrl[globalOpenlayerValue.currentVisibleLayerIndex]
@@ -53,10 +47,9 @@ export default {
           return 
         }
       }
-      
-      let url = 'http://localhost:8081/csy' + "/file/downloadFile/" + store.state.userId + "/" + fileName
-      console.log("注意部署时修改 download.vue 的地址前缀", url)
-      window.open(url)
+    },
+    downloadTestData () {
+      window.open("./testdata.zip")
     },
     showAuthorMsg () {
       this.msg('网页临摹: https://pixelmap.amcharts.com/#', `本网页仅作个人练习使用`)

@@ -9,11 +9,6 @@
 
 export default {
   name: "ProjectName",
-  data () {
-    return {
-
-    }
-  }
 }
 </script>
 

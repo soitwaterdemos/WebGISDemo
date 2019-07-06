@@ -5,11 +5,6 @@
     <toolbar v-drag></toolbar>
     <control-table id="main-controltable" v-drag></control-table>
     <attributes v-drag></attributes>
-    <!-- <bai-du id="baidu" v-drag></bai-du>
-    <bai-du-map id="baidu-map"></bai-du-map>
-    <bai-du-map-set id="baidu-map-set"></bai-du-map-set> -->
-    <BaiDuMapStyleV2 id="baidu-map-style-v2"></BaiDuMapStyleV2>
-    <!-- <turf id="main-turf" v-drag></turf> -->
   </div>
 </template>
 
@@ -24,7 +19,6 @@ import Letter from "@/pages/letter/letter.vue"
 import Toolbar from "@/pages/toolbar/toolbar.vue"
 import ControlTable from "@/pages/controltable/controltable.vue"
 import Attributes from "@/pages/attributes/attributes.vue"
-// import Turf from "@/pages/turf/turf.vue"
 
 export default {
   name: "Main",
@@ -39,7 +33,6 @@ export default {
     Toolbar,
     ControlTable,
     Attributes,
-    // Turf,
   },
   directives: {
     drag (el) {
@@ -55,20 +48,6 @@ export default {
         }
         e.preventDefault()
       }
-      // el.ontouchstart = function (e) {
-      //   e.preventDefault()
-      //   let touch = e.touches[0] || e.originEvent.touches[0] || e.originEvent.changedTouches[0]
-      //   let disx = touch.pageX - el.offsetLeft
-      //   let disy = touch.pageY - el.offsetTop
-      //   el.ontouchmove = function (e) {
-      //     let touch = e.touches[0] || e.originEvent.touches[0] || e.originEvent.changedTouches[0]
-      //     el.style.left =  touch.pageX - disx + "px"
-      //     el.style.top = touch.pageY - disy + "px"
-      //   }
-      //   el.ontouchend = function (e) {
-      //     el.ontouchmove = el.ontouchend = null
-      //   }
-      // }
     }
   },
   mounted () {
@@ -109,11 +88,5 @@ export default {
   left:2%;
   top: 2%;
   z-index: 7;
-}
-#main-turf {
-  position: absolute;
-  right:2%;
-  top: 2%;
-  z-index: 5;
 }
 </style>

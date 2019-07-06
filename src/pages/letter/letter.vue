@@ -1,7 +1,7 @@
 <template>
   <div id="main-letter">
     <name></name>
-    <ProjectName id="project-name"></ProjectName>
+    <ProjectName></ProjectName>
   </div>
 </template>
 
@@ -11,11 +11,6 @@ import ProjectName from "./components/projectname.vue"
 
 export default {
   name: "Letter",
-  data () {
-    return {
-      dd: 10,
-    }
-  },
   components: {
     Name,
     ProjectName,

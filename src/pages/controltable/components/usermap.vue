@@ -15,7 +15,6 @@
           min-width="100">
           <template slot-scope="scope">
             <el-radio v-model="radio" :label="scope.$index" @change="refreshOpenlayersMap">Visible</el-radio>
-            <!-- <el-checkbox v-model="checked[scope.$index]" @change="commitSelectedOpenlayersMap">Select</el-checkbox> -->
           </template>
         </el-table-column>
       </el-table>
@@ -37,7 +36,6 @@ export default {
   },
   methods: {
     setRowStyle ({row, rowIndex}) {
-    //   console.log("86, 行号", rowIndex)
       return "background:#3c3c3c;border: none"
     },
     setCellStyle ({row, column, rowIndex, columnIndex}) {
@@ -48,8 +46,6 @@ export default {
       bus.$emit("refreshOpenlayers")
     },
     commitSelectedOpenlayersMap () { // checkBox 选中则触发
-      // console.log("子组件: ", this.checked)
-      // console.log("store: ", store.state.globalValue.currentSelectedLayerIndex)
       store.commit("selectedCheckedBoxOpenlayersMap")
     },
   },
@@ -67,7 +63,6 @@ export default {
   height: 100%;
   box-sizing: border-box;
   border-right: .01rem solid rgb(42, 42, 42);
-  /* background: red; */
 }
 .el-table {
   background: transparent;

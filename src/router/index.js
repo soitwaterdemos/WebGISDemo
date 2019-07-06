@@ -7,7 +7,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    { // 当你访问'/'路径，它访问component Helloworld
+    { 
       path: '/',
       name: 'Main',
       component: Main,

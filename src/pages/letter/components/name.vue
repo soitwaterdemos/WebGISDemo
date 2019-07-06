@@ -8,11 +8,6 @@
 
 export default {
   name: "Name",
-  data () {
-    return {
-
-    }
-  }
 }
 </script>
 
